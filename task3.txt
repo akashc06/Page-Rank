@@ -1,0 +1,51 @@
+Task 3:
+
+Graph G1:
+
+The top 5 links obtained by PageRank are as follows:		The top 5 links obtained by PageRank are as follows:
+									Page : In-link count
+	Integrated_Authority_File: 0.0186001552593			Renewable_energy: 421
+	National_Diet_Library: 0.0122131591526				Efficient_energy_use: 286 
+	United_States: 0.011003392979					United_States: 252
+	Japan: 0.0104156578913						Biofuel: 248
+	Renewable_energy: 0.00848433656506				Wind_power: 245
+
+Graph G2:
+
+The top 5 links obtained by PageRank are as follows:		The top 5 links obtained by PageRank are as follows:
+									Page : In-link count
+	WT21-B37-76: 0.00269446708411					WT21-B37-76: 2568
+	WT21-B37-75: 0.00153317497794					WT21-B37-75: 1704 
+	WT25-B39-116: 0.00146848260329					WT01-B18-225: 1137
+	WT23-B21-53: 0.0013735118704					WT08-B19-222: 1041
+	WT24-B26-10: 0.00127616930075					WT08-B18-400: 990
+
+
+From the above tables, In both the graphs G1 and G2 we see that only 2 of the top 5 pages obtained by 
+counting the number of in-links match the list of top 5 pages obtained by calculating the pagerank.
+
+This is because the PageRank for a page depends on the PageRank of all the pages that are pointing to it.
+In our case, the page "Efficient_energy_use" has 286 pages pointing to it but when the same page was 
+passed through the page rank algorithm, it didn't even make the top 5. This is because the pages that are 
+pointing to this page don't have a good pagerank value. 
+
+The page "WT25-B39-116" in G2 is at the 3rd position when ranked according to the pagerank values, 
+but it doesn't occur anywhere near the top 5 when checked for the number of inlinks it has. 
+The reason is that though the page may contain less number of inlinks, it has popular/quality links 
+pointing to it, that is , the pagerank of the links are high or good. 
+On the other hand a page may have very large inlink count, but all these inlinks may not be popular and
+thus will be low pagerank scores.
+
+The dependencies while calculating pagerank can be shown as :
+
+A -> B C
+B -> C
+C -> A
+
+From the above example, to calculate the pagerank of C we need the pageranks of both A and B as both these pages 
+are pointing to C. Same way to calculate the pagerank of A its necessary to have the pagerank of c, and to calculate
+for B we need A. Thus if pageranks of the inlinks are good, the pagerank of source will by obvious be good.
+
+It wouldn't be wrong to say that the pagerank of a page is directly proportional to that of its in-links.
+And this why ranks of the same page may vary when ranked according to pagerank and by the number of in-links. 	
+		
